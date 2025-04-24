@@ -1,53 +1,20 @@
-FROM php:8.2-apache
+FROM richarvey/nginx-php-fpm:1.7.2
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    libzip-dev
+COPY . .
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Set working directory
-WORKDIR /var/www/html
-
-# Copy composer files first for better caching
-COPY composer.* ./
-
-# Install dependencies with increased memory limit
-RUN php -d memory_limit=-1 /usr/bin/composer install --no-interaction --no-dev --optimize-autoloader --verbose
-
-# Copy the rest of the application
-COPY . /var/www/html/
-
-# Configure Apache
-# Make sure the docker directory exists
-RUN mkdir -p /var/www/html/docker
-
-# Copy the Apache configuration
-COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-# Enable Apache modules
-RUN a2enmod rewrite
-
-# Set permissions
-RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache && \
-    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Expose port 80
-EXPOSE 80
-
-# Start Apache server
-CMD ["apache2-foreground"]
+CMD ["/start.sh"]
