@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer components {
+    
+    .log-in-form-container{
+        @apply xl:max-w-[30vw] lg:max-w-[30vw] lg:min-h-[50vh] md:max-w-[60vw] sm:max-w-[65vw] max-w-[95vw] min-h-[65vh] border border-gray-300 bg-[#D9D9D9] p-1 rounded-md
+    }
+
+    .log-in-form-container form{
+        @apply flex flex-col gap-3 justify-center items-center xl:max-w-[25vw] lg:max-w-[25vw] lg:min-h-[50vh] md:max-w-[55vw] sm:max-w-[60vw] w-[90vw] min-h-[60vh]
+    }
+
+    .log-in-form-container form input[type=text]{
+        @apply text-[20px] h-[50px] p-2 w-[100%] border border-gray-400 rounded-sm
+    }
+
+    .log-in-form-container form > p{
+        @apply text-red-500
+    }
+
+    .log-in-form-container form button{
+        @apply text-[20px] text-white bg-[#0866FF] p-2 w-[100%] rounded-sm
+    }
+    
+}
