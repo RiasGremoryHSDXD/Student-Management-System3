@@ -13,7 +13,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://your.url.from.vercel.app",
+        "APP_URL": "https://student-management-system.vercel.app",
         "APP_KEY": "base64:QE5h8uPThAr7Q1pMAJeyq2jp01x/lrmq5Fy2HgMAaUg=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
