@@ -17,5 +17,30 @@
         "src": "/(.*)",
         "dest": "/api/index.php"
       }
-    ]
+    ],
+    "env": {
+      "APP_ENV": "production",
+      "APP_DEBUG": "false",
+      "APP_URL": "https://student-management-system3.vercel.app",
+      "APP_KEY": "base64:QE5h8uPThAr7Q1pMAJeyq2jp01x/lrmq5Fy2HgMAaUg=",
+      "CACHE_DRIVER": "array",
+      "LOG_CHANNEL": "stderr",
+      "SESSION_DRIVER": "cookie",
+      "DB_CONNECTION": "pgsql",
+      "DB_HOST": "mmypokiqblqjmfyfekvu.supabase.co",
+      "DB_PORT": "5432",
+      "DB_DATABASE": "postgres",
+      "DB_USERNAME": "postgres", 
+      "DB_PASSWORD": "YOUR_SUPABASE_DB_PASSWORD",
+      "SUPABASE_URL": "https://mmypokiqblqjmfyfekvu.supabase.co",
+      "SUPABASE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1teXBva2lxYmxxam1meWZla3Z1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMxNjkzNTAsImV4cCI6MjA1ODc0NTM1MH0.uqnhybt5tboCDcAZ3NU5uLTAQqoRje_iY7Azgium6uw",
+      "FILESYSTEM_DISK": "local",
+      "QUEUE_CONNECTION": "sync",
+      "VIEW_COMPILED_PATH": "/tmp",
+      "APP_CONFIG_CACHE": "/tmp/config.php",
+      "APP_EVENTS_CACHE": "/tmp/events.php",
+      "APP_PACKAGES_CACHE": "/tmp/packages.php",
+      "APP_ROUTES_CACHE": "/tmp/routes.php",
+      "APP_SERVICES_CACHE": "/tmp/services.php"
+    }
   }
