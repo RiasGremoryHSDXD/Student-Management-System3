@@ -13,9 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
+            \Illuminate\Http\Middleware\HandleCors::class,
             \App\Http\Middleware\HandleInertiaRequests::class,
             HandleInertiaRequests::class,
-            \Illuminate\Http\Middleware\HandleCors::class,
         ]);
         
     })
