@@ -33,3 +33,11 @@ Route::get('/LogInForm', function () {
 });
 
 Route::get('/customers', [CustomerController::class, 'api']);
+
+Route::get('/debug', function () {
+    return [
+        'status' => 'working',
+        'laravel_version' => app()->version(),
+        'php_version' => phpversion(),
+    ];
+});
