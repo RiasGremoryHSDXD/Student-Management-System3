@@ -1,5 +1,4 @@
 {
-    "version": 2,
     "builds": [
       {
         "src": "api/index.php",
@@ -8,9 +7,7 @@
       {
         "src": "package.json",
         "use": "@vercel/static-build",
-        "config": {
-          "distDir": "public/build"
-        }
+        "config": { "distDir": "public/build" }
       }
     ],
     "routes": [
@@ -20,7 +17,7 @@
       "APP_ENV": "production",
       "APP_DEBUG": "false",
       "APP_URL": "https://student-management-system.vercel.app",
-      "APP_KEY":   "base64:QE5h8uPThAr7Q1pMAJeyq2jp01x/lrmq5Fy2HgMAaUg=",
+      "APP_KEY": "base64:QE5h8uPThAr7Q1pMAJeyq2jp01x/lrmq5Fy2HgMAaUg=",
       "CACHE_DRIVER": "array",
       "LOG_CHANNEL": "stderr",
       "SESSION_DRIVER": "cookie",
@@ -32,3 +29,4 @@
       "APP_SERVICES_CACHE": "/tmp/services.php"
     }
   }
+  
